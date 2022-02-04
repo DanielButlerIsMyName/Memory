@@ -18,7 +18,7 @@ def generate_e():
 
 
 n = p * q
-print("modulo generated")
+print("\nmodulo generated")
 phi = (p-1) * (q-1)
 print("phi generated")
 generate_e()
@@ -29,4 +29,24 @@ print("secret exponent generated")
 print("\n\n (modulo, public exponent)")
 print("private key: (" + str(n) + ", " + str(e) + ")")
 print("\n (modulo, secret exponent)")
-print("private key: (" + str(n) + ", " + str(d) + ")")
+print("private key: (" + str(n) + ", " + str(d) + ")\n\n")
+
+
+plain_text = input("number you would like ot encript: ")
+
+x = len(plain_text)
+
+
+while x > 0:
+  x = x -1
+
+  plain_text_char = plain_text[x]
+  plain_text_char = int(plain_text_char)
+  ciphertext_char = pow(plain_text_char, e, n)
+
+  global ciphertext_list
+  ciphertext_list = []
+  ciphertext_list.append(ciphertext_char)
+
+
+print("this is you ciphertext: " + str(ciphertext_list))
